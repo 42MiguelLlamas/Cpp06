@@ -12,5 +12,4 @@ int main (int argc, char **argv)
     ScalarConverter::convert(literal);
     
     return 0;
-		
 }
