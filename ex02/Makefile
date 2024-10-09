@@ -1,5 +1,5 @@
 NAME = Identify
-SRCS = main.cpp Base.cpp A.cpp B.cpp C.cpp
+SRCS = main.cpp Base.cpp
 OBJS = $(SRCS:.cpp=.o)
 CFLAGS = -Wall -Werror -Wextra -std=c++98
 CC = c++
