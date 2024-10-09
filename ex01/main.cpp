@@ -3,23 +3,28 @@
 int main()
 {
     Data originalData;
-    originalData.intValue = 42;
-    originalData.stringValue = "Hello, World!";
-    originalData.floatValue = 3.14f;
+    originalData.intVal = 42;
+    originalData.stringVal = "Hello, World!";
+    originalData.floatVal = 3.14f;
+    originalData.str = "Hola";
 
     std::cout << "Original Data: " << std::endl;
-    std::cout << "intValue: " << originalData.intValue << std::endl;
-    std::cout << "stringValue: " << originalData.stringValue << std::endl;
-    std::cout << "floatValue: " << originalData.floatValue << std::endl;
+    std::cout << "int: " << originalData.intVal << std::endl;
+    std::cout << "string: " << originalData.stringVal << std::endl;
+    std::cout << "float: " << originalData.floatVal << std::endl;
+    std::cout << "string: " << originalData.str << std::endl;
 
-    uintptr_t raw = Serializer::serialize(&originalData);
+    uintptr_t serialized = Serializer::serialize(&originalData);
 
-    Data* deserializedData = Serializer::deserialize(raw);
+    std::cout << "\nAlmacenado como unsigned int ptr: " << serialized << std::endl;
 
-    std::cout << "\nDeserialized Data: " << std::endl;
-    std::cout << "intValue: " << deserializedData->intValue << std::endl;
-    std::cout << "stringValue: " << deserializedData->stringValue << std::endl;
-    std::cout << "floatValue: " << deserializedData->floatValue << std::endl;
+    Data* finalData = Serializer::deserialize(serialized);
+
+    std::cout << "\nFinal Data: " << std::endl;
+    std::cout << "int: " << finalData->intVal << std::endl;
+    std::cout << "string: " << finalData->stringVal << std::endl;
+    std::cout << "float: " << finalData->floatVal << std::endl;
+    std::cout << "string: " << finalData->str << std::endl;
 
     return 0;
 }

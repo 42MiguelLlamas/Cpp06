@@ -5,9 +5,10 @@
 
 struct Data
 {
-    int intValue;
-    std::string stringValue;
-    float floatValue;
+    int intVal;
+    std::string stringVal;
+    float floatVal;
+    std::string str;
 };
 
 #endif
